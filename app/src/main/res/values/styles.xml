@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="maintFontImageText" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">24sp</item>
+
+    </style>
+
+    <style name="maintFont" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="itemDailyListTextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
 </resources>
