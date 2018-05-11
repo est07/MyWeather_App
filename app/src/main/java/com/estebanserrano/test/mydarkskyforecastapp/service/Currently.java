@@ -1,7 +1,6 @@
 
 package com.estebanserrano.test.mydarkskyforecastapp.service;
 
-import com.google.gson.annotations.SerializedName;
 
 public class Currently {
 

@@ -2,6 +2,8 @@ package com.estebanserrano.test.mydarkskyforecastapp.mvp.presenter;
 
 
 
+import android.view.View;
+
 import com.estebanserrano.test.mydarkskyforecastapp.mvp.model.MainModel;
 import com.estebanserrano.test.mydarkskyforecastapp.mvp.view.MainView;
 import com.estebanserrano.test.mydarkskyforecastapp.service.DataWeatherResponse;
@@ -41,12 +43,21 @@ public class MainPresenter {
             @Override
             public void onError(Throwable e) {
                 mainView.showError();
+                showSnack();
             }
+
 
             @Override
             public void onComplete() {
             }
         });
+    }
+
+    public void showSnack() {
+
+        View.OnClickListener listener = v -> init();
+        mainView.showErrorRed(listener);
+
     }
 
 

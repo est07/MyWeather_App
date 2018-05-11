@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class DailyWeatherAdater extends RecyclerView.Adapter<DailyWeatherAdater.DailyViewHolder> {
 
-//    public static final String TAG = DailyWeatherAdapter.class.getSimpleName();
 
     private ArrayList<DataWeatherResponse> days;
     private Context context;
@@ -63,9 +62,9 @@ public class DailyWeatherAdater extends RecyclerView.Adapter<DailyWeatherAdater.
         DailyViewHolder(View itemView) {
             super(itemView);
 
-            dayTitle = (TextView) itemView.findViewById(R.id.txtDailyListTitle);
-            dayIcon = itemView.findViewById(R.id.imvDailyListIcon);
-            dayTemperature = (TextView) itemView.findViewById(R.id.txtDailyListTemperature);
+            dayTitle = (TextView) itemView.findViewById(R.id.txtItemDailyTitle);
+            dayIcon = (ImageView) itemView.findViewById(R.id.imageItemDailyIcon);
+            dayTemperature = (TextView) itemView.findViewById(R.id.txtItemDailyTemperature);
 
         }
 

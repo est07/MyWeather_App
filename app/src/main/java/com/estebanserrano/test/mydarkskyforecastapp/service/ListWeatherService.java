@@ -15,7 +15,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
-public class ListaWeatherService {
+public class ListWeatherService {
 
 
     public void getListWeather(@NonNull Observer<GetWeatherResponse> observer){

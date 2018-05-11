@@ -9,4 +9,10 @@
     <string name="error_connection_webservice">Error de conexiòn con la base de datos.</string>
     <string name="error_webservice_body">"Error en la respuesta del servidor"</string>
 
+    <string name="network_error_message">Error de red. ¿Tratar de nuevo?</string>
+    <string name="service_error_message">Error con el servidor. ¿Tratar de nuevo?</string>
+    <string name="ok">Ok</string>
+    <string name="no_information_message">No hay información disponible</string>
+
+
 </resources>

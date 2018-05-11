@@ -1,12 +1,14 @@
 package com.estebanserrano.test.mydarkskyforecastapp.mvp.view;
 
 import android.graphics.drawable.Drawable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.estebanserrano.test.mydarkskyforecastapp.R;
 import com.estebanserrano.test.mydarkskyforecastapp.adaters.DailyWeatherAdater;
@@ -18,7 +20,6 @@ import com.estebanserrano.test.mydarkskyforecastapp.ui.MainActivity;
 
 import java.util.ArrayList;
 
-
 import butterknife.BindDrawable;
 import butterknife.BindString;
 import butterknife.BindView;
@@ -27,8 +28,8 @@ import butterknife.ButterKnife;
 
 public class MainView extends ActivityView<MainActivity> {
 
-    @BindView(R.id.imvMainActivity)
-    ImageView iconImageMainActivity;
+    @BindView(R.id.imageCurrentlyIcon)
+    ImageView imageCurrentlyIcon;
     @BindView(R.id.txtCurrentDescription)
     TextView txtCurrentdescription;
     @BindView(R.id.txtCurrentTemperature)
@@ -47,6 +48,10 @@ public class MainView extends ActivityView<MainActivity> {
     @BindString(R.string.error_connection_webservice)
     String errorMessge;
 
+    @BindString(R.string.network_error_message) String errorMessageRed;
+
+    @BindView(R.id.placeholder)
+    FrameLayout frameLayout;
 
 
     private DailyWeatherAdater adapter;
@@ -110,13 +115,11 @@ public class MainView extends ActivityView<MainActivity> {
         days = getWeatherResponse.getDaily().getData();
 
         iconImage = currentWeather.getIcon();
-        //iconImageView.setImageDrawable(getIconDrawableResource());
+        imageCurrentlyIcon.setImageDrawable(getIconDrawableResource());
         txtCurrentdescription.setText(currentWeather.getSummary());
         txtcurrentTemperature.setText(String.valueOf(currentWeather.getTemperature())+"°");
         txtWindSpeed.setText(String.format("WS: %s", currentWeather.getWindSpeed())+"kph");
         txtPrecipProbability.setText(String.format("P: %s%%", currentWeather.getPrecipProbability()));
-
-
 
     }
 
@@ -154,14 +157,14 @@ public class MainView extends ActivityView<MainActivity> {
         }
     }
 
+    public void showErrorRed(View.OnClickListener listener) {
+        Toast.makeText(getContext(), errorMessageRed, Toast.LENGTH_SHORT).show();
+        displayErrorMessage(errorMessageRed, listener);
+    }
+
     public void showError() {
         Toast.makeText(getContext(), errorMessge, Toast.LENGTH_SHORT).show();
     }
-
-    public void showMessage(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-    }
-
 
     public void setDailyListItems(ArrayList<DataWeatherResponse> dataWeatherArrayList){
 
@@ -172,6 +175,12 @@ public class MainView extends ActivityView<MainActivity> {
 
     }
 
+    public void displayErrorMessage(String mensaje, View.OnClickListener listener) {
 
+        Snackbar snackbar = Snackbar.make(frameLayout, mensaje, Snackbar.LENGTH_INDEFINITE)
+                .setAction(getContext().getString(R.string.ok), listener);
 
+        snackbar.show();
+
+    }
 }

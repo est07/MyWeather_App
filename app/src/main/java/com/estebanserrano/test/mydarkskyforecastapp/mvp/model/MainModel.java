@@ -4,21 +4,21 @@ import android.support.annotation.NonNull;
 
 
 import com.estebanserrano.test.mydarkskyforecastapp.service.GetWeatherResponse;
-import com.estebanserrano.test.mydarkskyforecastapp.service.ListaWeatherService;
+import com.estebanserrano.test.mydarkskyforecastapp.service.ListWeatherService;
 
 import io.reactivex.observers.DisposableObserver;
 
 
 public class MainModel {
 
-    private ListaWeatherService listaWeatherService;
+    private ListWeatherService listWeatherService;
 
-    public MainModel(ListaWeatherService listaWeatherService) {
-        this.listaWeatherService = listaWeatherService;
+    public MainModel(ListWeatherService listWeatherService) {
+        this.listWeatherService = listWeatherService;
     }
 
     public void getWeathers(@NonNull DisposableObserver<GetWeatherResponse> observer) {
-          listaWeatherService.getListWeather(observer);
+          listWeatherService.getListWeather(observer);
     }
 
 }
